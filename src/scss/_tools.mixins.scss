@@ -1,0 +1,101 @@
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
+
+@mixin z-index($index_name) {
+	z-index: map-get($z-indexes, $index_name);
+}
+
+
+
+@mixin parallax-bg {
+	position: relative;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: 50% 0;
+	background-size: auto !important;
+}
+
+
+
+//breakpoints
+@mixin break($size) {  
+    @media (max-width: map-get($breakpoints, $size) + px) {
+        @content;
+    }
+}
+@mixin break-min($size) {  
+    @media (min-width: map-get($breakpoints, $size) + 1 + px) {
+        @content;
+    }
+}
+@mixin break-range($size_min, $size_max) {  
+    @media (min-width: map-get($breakpoints, $size_min) + 1 + px) and (max-width: map-get($breakpoints, $size_max) + px) {
+        @content;
+    }
+}
+/* Usage:
+.el {
+  display: none;
+
+  @include break(sm) {
+    display: block;
+  }
+}
+*/
+
+
+
+@mixin retina($ratio: 2) {
+    @if $ratio == 2 {
+        //there should be from 1.5, not 2 - some devices realy have 1.5 pixel ratio
+        @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+        only screen and (min-resolution: 144dpi) {
+            @content;
+        }
+    }
+    @else if $ratio == 3 {
+        @media only screen and (-webkit-min-device-pixel-ratio: 3),
+        only screen and (min-resolution: 288dpi) {
+            @content;
+        }
+    }
+}
+/* Usage:
+.el {
+  display: none;
+
+  @include retina() {
+    display: block;
+  }
+}
+*/
+
+
+
+/// Native `url(..)` function wrapper
+/// @param {String} $base - base URL for the asset
+/// @param {String} $type - asset type folder (e.g. `fonts/`)
+/// @param {String} $path - asset path
+/// @return {Url}
+@function asset($base, $type, $path) {
+	@return url($base + $type + $path);
+}
+
+/// Returns URL to an image based on its path
+/// @param {String} $path - image path
+/// @param {String} $base [$base-url] - base URL
+/// @return {Url}
+/// @require $base-url
+@function image($path, $base: $base-url) {
+	@return asset($base, 'images/', $path);
+}
