@@ -39,7 +39,7 @@
     }
 }
 @mixin break-range($size_min, $size_max) {  
-    @media (min-width: map-get($breakpoints, $size_min) + 1 + px) and (max-width: map-get($breakpoints, $size_max) + px) {
+    @media (min-width: map-get($breakpoints, $size_max) + 1 + px) and (max-width: map-get($breakpoints, $size_min) + px) {
         @content;
     }
 }
