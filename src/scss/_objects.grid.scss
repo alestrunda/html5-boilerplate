@@ -37,6 +37,10 @@ $breakpoint_types: map-keys($breakpoints);
     }
 }
 
+    .grid__item--v-center {
+        align-self: center;
+    }
+
     /* grid break spacing */
     @for $i from 1 through length($breakpoint_types) {
         $key: nth($breakpoint_types, $i);
