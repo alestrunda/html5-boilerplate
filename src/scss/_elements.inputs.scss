@@ -1,0 +1,12 @@
+input {
+    border: none;
+    background-color: #fff;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+input[type=submit] {
+    cursor: pointer;
+}
