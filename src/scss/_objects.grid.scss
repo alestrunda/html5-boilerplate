@@ -27,6 +27,18 @@ $breakpoint_types: map-keys($breakpoints);
         }
     }
 
+    .grid--items-bottom {
+        align-items: flex-end;
+    }
+
+    .grid--items-center {
+        align-items: center;
+    }
+
+    .grid--items-top {
+        align-items: flex-start;
+    }
+
 .grid__item {
     flex: 0 0 100%;
     @if map-has-key($grid_sizes, 'default') {
