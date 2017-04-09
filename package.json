@@ -2,17 +2,17 @@
   "name": "project-name",
   "version": "1.0.0",
   "dependencies": {
-	"font-awesome": "*",
+    "font-awesome": "*",
     "jquery": "*",
-	"normalize.css": "*",
+    "normalize.css": "*",
     "slick-carousel": "*"
   },
   "devDependencies": {
     "autoprefixer": "*",
-    "cssnano": "*",
     "gulp": "*",
+    "gulp-cssnano": "*",
     "gulp-postcss": "*",
     "gulp-sass": "*",
-	"run-sequence": "*"
+    "run-sequence": "*"
   }
 }
