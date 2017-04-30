@@ -9,8 +9,8 @@
   },
   "devDependencies": {
     "autoprefixer": "*",
+	"cssnano": "*",
     "gulp": "*",
-    "gulp-cssnano": "*",
     "gulp-postcss": "*",
     "gulp-sass": "*",
     "run-sequence": "*"
