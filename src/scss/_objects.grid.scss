@@ -20,7 +20,7 @@ $breakpoint_types: map-keys($breakpoints);
             .grid--#{$key} {
                 margin-left: #{- $value + 'px'};
 
-                .grid__item {
+                > .grid__item {
                     padding-left: #{$value + 'px'};
                 }
             }
