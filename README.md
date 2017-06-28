@@ -9,4 +9,4 @@ HTML starting skelet for new web sites.
 * ITCSS (BEM)
 
 See dependecies in package.json for basic assets used on web.
-Run "npm update --save" to replace "*" with the latest versions.
+Run "npm update --save" to replace "*" with the latest versions (before "npm install").
