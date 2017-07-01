@@ -12,7 +12,13 @@
 
 
 @mixin z-index($index_name) {
-	z-index: map-get($z-indexes, $index_name);
+    $z_index: map-get($z-indexes, $index_name);
+    @if $z_index == null {
+        @warn "unknown z-index key '#{$index_name}'";
+    }
+    @else {
+	    z-index: $z_index;
+    }
 }
 
 
