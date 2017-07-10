@@ -35,17 +35,17 @@
 
 
 //breakpoints
-@mixin break($size) {  
+@mixin break($size) {
     @media (max-width: map-get($breakpoints-global, $size) + px) {
         @content;
     }
 }
-@mixin break-min($size) {  
+@mixin break-min($size) {
     @media (min-width: map-get($breakpoints-global, $size) + 1 + px) {
         @content;
     }
 }
-@mixin break-range($size_min, $size_max) {  
+@mixin break-range($size_min, $size_max) {
     @media (min-width: map-get($breakpoints-global, $size_max) + 1 + px) and (max-width: map-get($breakpoints-global, $size_min) + px) {
         @content;
     }
