@@ -36,17 +36,33 @@
 
 //breakpoints
 @mixin break($size) {
-    @media (max-width: map-get($breakpoints-global, $size) + px) {
+    $breakpoint: map-get($breakpoints-global, $size);
+    @if $breakpoint == null {
+        @error "unknown breakpoint key '#{$size}'";
+    }
+    @media (max-width: $breakpoint + px) {
         @content;
     }
 }
 @mixin break-min($size) {
-    @media (min-width: map-get($breakpoints-global, $size) + 1 + px) {
+    $breakpoint: map-get($breakpoints-global, $size);
+    @if $breakpoint == null {
+        @error "unknown breakpoint key '#{$size}'";
+    }
+    @media (min-width: $breakpoint + 1 + px) {
         @content;
     }
 }
 @mixin break-range($size_min, $size_max) {
-    @media (min-width: map-get($breakpoints-global, $size_max) + 1 + px) and (max-width: map-get($breakpoints-global, $size_min) + px) {
+    $breakpoint-min: map-get($breakpoints-global, $size_min);
+    $breakpoint-max: map-get($breakpoints-global, $size_max);
+    @if $breakpoint-min == null {
+        @error "unknown breakpoint key '#{$size_min}'";
+    }
+    @if $breakpoint-max == null {
+        @error "unknown breakpoint key '#{$size_max}'";
+    }
+    @media (min-width: $breakpoint-min + 1 + px) and (max-width: $breakpoint-max + px) {
         @content;
     }
 }
