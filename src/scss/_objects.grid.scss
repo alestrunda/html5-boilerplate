@@ -1,4 +1,4 @@
-$breakpoint_types: map-keys($breakpoints);
+$breakpoint_types: map-keys($breakpoints-grid);
 
 .grid {
     display: flex;
@@ -27,16 +27,18 @@ $breakpoint_types: map-keys($breakpoints);
         }
     }
 
-    .grid--items-bottom {
-        align-items: flex-end;
-    }
+    @if $framework-grid-vertical-aligns {
+        .grid--items-bottom {
+            align-items: flex-end;
+        }
 
-    .grid--items-center {
-        align-items: center;
-    }
+        .grid--items-center {
+            align-items: center;
+        }
 
-    .grid--items-top {
-        align-items: flex-start;
+        .grid--items-top {
+            align-items: flex-start;
+        }
     }
 
 .grid__item {
@@ -49,29 +51,35 @@ $breakpoint_types: map-keys($breakpoints);
     }
 }
 
-    .grid__item--v-center {
-        align-self: center;
+    @if $framework-grid-vertical-aligns {
+        .grid__item--v-center {
+            align-self: center;
+        }
     }
 
-    /* grid break spacing */
-    @for $i from 1 through length($breakpoint_types) {
-        $key: nth($breakpoint_types, $i);
-        @for $i from 1 through 10 {
-            .grid__item--break-#{$key}-#{$i * 5} {
-                @include break($key) {
-                    padding-top: $i * 5px;
+    @if ($framework-grid-break-spacing) {
+        /* grid break spacing */
+        @for $i from 1 through length($breakpoint_types) {
+            $key: nth($breakpoint_types, $i);
+            @for $i from 1 through 10 {
+                .grid__item--break-#{$key}-#{$i * 5} {
+                    @include break($key) {
+                        padding-top: $i * 5px;
+                    }
                 }
             }
         }
     }
 
-    /* grid break ordering */
-    @for $i from 1 through length($breakpoint_types) {
-        $key: nth($breakpoint_types, $i);
-        @for $i from 1 through 5 {
-            .grid__item--order-#{$key}-#{$i} {
-                @include break($key) {
-                    order: $i;
+    @if ($framework-grid-break-ordering) {
+        /* grid break ordering */
+        @for $i from 1 through length($breakpoint_types) {
+            $key: nth($breakpoint_types, $i);
+            @for $i from 1 through 5 {
+                .grid__item--order-#{$key}-#{$i} {
+                    @include break($key) {
+                        order: $i;
+                    }
                 }
             }
         }

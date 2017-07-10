@@ -3,18 +3,22 @@
 $text_aligns: (left, center, right, justify);
 
 //text align basic
-@each $item in $text_aligns {
-    .text-#{$item} {
-        text-align: #{$item};
+@if $framework-text-aligns-basic {
+    @each $item in $text_aligns {
+        .text-#{$item} {
+            text-align: #{$item};
+        }
     }
 }
 
 //text align responsive
-@each $key, $value in $breakpoints {
-    @each $item in $text_aligns {
-        .text-#{$key}-#{$item} {
-            @include break($key) {
-                text-align: #{$item};
+@if $framework-text-aligns-responsive {
+    @each $key, $value in $breakpoints-global {
+        @each $item in $text_aligns {
+            .text-#{$key}-#{$item} {
+                @include break($key) {
+                    text-align: #{$item};
+                }
             }
         }
     }
