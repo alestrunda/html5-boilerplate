@@ -16,7 +16,7 @@ $breakpoint_types: map-keys($breakpoints-grid);
     }
 
     @each $key, $value in $grid_sizes {
-        @if($key != 'default') {
+        @if $key != 'default' {
             .grid--#{$key} {
                 margin-left: #{- $value + 'px'};
 
@@ -57,7 +57,7 @@ $breakpoint_types: map-keys($breakpoints-grid);
         }
     }
 
-    @if ($framework-grid-break-spacing) {
+    @if $framework-grid-break-spacing {
         /* grid break spacing */
         @for $i from 1 through length($breakpoint_types) {
             $key: nth($breakpoint_types, $i);
@@ -71,7 +71,7 @@ $breakpoint_types: map-keys($breakpoints-grid);
         }
     }
 
-    @if ($framework-grid-break-ordering) {
+    @if $framework-grid-break-ordering {
         /* grid break ordering */
         @for $i from 1 through length($breakpoint_types) {
             $key: nth($breakpoint_types, $i);
