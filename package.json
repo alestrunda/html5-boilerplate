@@ -9,10 +9,12 @@
   },
   "devDependencies": {
     "autoprefixer": "*",
-	"cssnano": "*",
+    "cssnano": "*",
     "gulp": "*",
     "gulp-postcss": "*",
+    "gulp-rename": "*",
     "gulp-sass": "*",
+    "gulp-uglify": "*",
     "run-sequence": "*"
   }
 }

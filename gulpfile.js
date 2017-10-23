@@ -7,6 +7,8 @@ var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
 var sass = require('gulp-sass');
 var runSequence = require('run-sequence');
+var rename = require('gulp-rename');
+var uglify = require('gulp-uglify');
 
 
 /*
@@ -17,6 +19,21 @@ gulp.task('sass', function() {
 	return gulp.src('src/scss/main.scss')
 		.pipe(sass().on('error', sass.logError))
 		.pipe(gulp.dest('styles'));
+});
+
+
+/*
+ *
+ * js min
+ * reun uglify
+ */
+gulp.task('jsmin', function (cb) {
+    return gulp.src('src/js/custom.js')
+		.pipe(uglify())
+		.pipe(rename({
+			suffix: ".min"
+		}))
+        .pipe(gulp.dest('js'));
 });
 
 
