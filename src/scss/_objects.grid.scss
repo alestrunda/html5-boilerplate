@@ -43,6 +43,7 @@ $breakpoint_types: map-keys($breakpoints-grid);
 
 .grid__item {
     flex: 0 0 100%;
+    width: 100%;
     @if map-has-key($grid_sizes, 'default') {
         padding-left: #{map-get($grid_sizes, 'default') + 'px'};
     }
