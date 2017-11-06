@@ -42,7 +42,7 @@ $breakpoint_types: map-keys($breakpoints-grid);
     }
 
 .grid__item {
-    flex: 0 0 100%;
+    flex: 0 0 auto;
     width: 100%;
     @if map-has-key($grid_sizes, 'default') {
         padding-left: #{map-get($grid_sizes, 'default') + 'px'};
@@ -92,7 +92,8 @@ $breakpoint_types: map-keys($breakpoints-grid);
 $key: nth($breakpoint_types, 1);
 @for $i from 1 through $grid_cols {
     .grid__item--#{$key}-span-#{$i} {
-        flex: 0 0 #{$i / $grid_cols * 100 + '%'};
+        flex: 0 0 auto;
+        width: #{$i / $grid_cols * 100 + '%'};
     }
 }
 
@@ -102,7 +103,8 @@ $key: nth($breakpoint_types, 1);
     @for $i from 1 through $grid_cols {
         .grid__item--#{$key}-span-#{$i} {
             @include break-min($key_break) {
-                flex: 0 0 #{$i / $grid_cols * 100 + '%'};
+                flex: 0 0 auto;
+                width: #{$i / $grid_cols * 100 + '%'};
             }
         }
     }
