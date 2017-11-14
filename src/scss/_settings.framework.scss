@@ -1,10 +1,4 @@
-//grid
-$framework-grid-break-spacing: true;
-$framework-grid-break-ordering: true;
-$framework-grid-vertical-aligns: true;
-
-
-//spacing
+/* spacing */
 $framework-spacing-reset: true;
 $framework-spacing-direction-reset: true;
 $framework-spacing-direction: true;
@@ -20,10 +14,11 @@ $framework-spacing-single-step-10-start: 5;
 $framework-spacing-single-step-10-end: 10;
 
 
-//text aligns
+/* text aligns */
 $framework-text-aligns-basic: true;
 $framework-text-aligns-responsive: true;
 
-//visibility
+
+/* visibility */
 $framework-visibility-basic: true;
 $framework-visibility-responsive: true;
