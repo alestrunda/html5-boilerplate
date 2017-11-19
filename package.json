@@ -2,7 +2,10 @@
   "name": "project-name",
   "version": "1.0.0",
   "dependencies": {
+    "babel-core": "*",
+    "babel-preset-env": "*",
     "font-awesome": "*",
+    "gulp-babel": "*",
     "jquery": "*",
     "normalize.css": "*",
     "slick-carousel": "*"

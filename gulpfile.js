@@ -1,10 +1,10 @@
 "use strict";
 
 var gulp = require('gulp');
-
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
+var babel = require('gulp-babel');
 var sass = require('gulp-sass');
 var runSequence = require('run-sequence');
 var rename = require('gulp-rename');
@@ -26,12 +26,14 @@ gulp.task('sass', function() {
 
 
 /*
- *
  * js min
  * reun uglify
  */
 gulp.task('jsmin', function (cb) {
-    return gulp.src('src/js/custom.js')
+	return gulp.src('src/js/custom.js')
+		.pipe(babel({
+			presets: ['env']
+		}))
 		.pipe(uglify())
 		.pipe(rename({
 			suffix: ".min"
