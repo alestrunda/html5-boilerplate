@@ -18,6 +18,9 @@ var uglify = require('gulp-uglify');
 gulp.task('sass', function() {
 	return gulp.src('src/scss/main.scss')
 		.pipe(sass().on('error', sass.logError))
+		.pipe(rename({
+			suffix: ".min"
+		}))
 		.pipe(gulp.dest('styles'));
 });
 
@@ -46,7 +49,7 @@ gulp.task('css', function() {
         autoprefixer({browsers: ['last 5 versions']}),
 		cssnano()
     ];
-	return gulp.src('styles/main.css')
+	return gulp.src('styles/main.min.css')
 		.pipe(postcss(processors))
 		.pipe(gulp.dest('styles'));
 });
