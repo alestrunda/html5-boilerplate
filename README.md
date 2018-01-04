@@ -1,11 +1,11 @@
-# HTML Skelet
+# HTML5 Boilerplate with SASS framework
 
-HTML starting skelet for new web sites.
+HTML & SASS starting pack for new web sites.
 
 ## Using:
 * npm
 * gulp
-* Sass
+* SASS
 * ITCSS (BEM)
 
 See dependecies in package.json for basic assets used on web.
