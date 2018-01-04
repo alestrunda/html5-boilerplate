@@ -1,6 +1,12 @@
 {
-  "name": "project-name",
+  "name": "html5-boilerplate",
+  "description": "HTML5 boilerplate for new web sites",
   "version": "1.0.0",
+  "author": "Aleš Trunda",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alestrunda/html5-boilerplate.git"
+  },
   "dependencies": {
     "babel-core": "*",
     "babel-preset-env": "*",
