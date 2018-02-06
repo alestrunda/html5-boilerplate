@@ -3,6 +3,7 @@
   "description": "HTML5 boilerplate for new web sites",
   "version": "1.0.0",
   "author": "Aleš Trunda",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/alestrunda/html5-boilerplate.git"
