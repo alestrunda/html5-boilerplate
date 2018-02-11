@@ -1,3 +1,10 @@
+//generate text colors
+@each $key, $value in $colors {
+    .text-#{$key} {
+        color: $value;
+    }
+}
+
 .text-uppercase {
     text-transform: uppercase;
 }
