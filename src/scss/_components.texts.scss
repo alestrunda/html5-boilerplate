@@ -5,6 +5,13 @@
     }
 }
 
+//generate text line-heights
+@each $key, $value in $colors {
+    .text-ln-#{$key} {
+        line-height: $value;
+    }
+}
+
 .text-uppercase {
     text-transform: uppercase;
 }
