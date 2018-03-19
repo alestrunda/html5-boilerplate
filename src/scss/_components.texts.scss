@@ -6,7 +6,7 @@
 }
 
 //generate text line-heights
-@each $key, $value in $colors {
+@each $key, $value in $line-heights {
     .text-ln-#{$key} {
         line-height: $value;
     }
