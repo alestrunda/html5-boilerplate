@@ -6,7 +6,6 @@ var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
 var babel = require('gulp-babel');
 var sass = require('gulp-sass');
-var runSequence = require('run-sequence');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 
@@ -61,19 +60,17 @@ gulp.task('css', function() {
  * run-css task
  * run: sass and css
  */
-gulp.task('run-css', function() {
-	runSequence('sass', 'css');
-});
+gulp.task('run-css', gulp.series('sass', 'css'));
 
 
 /*
  * watch task
  * run: watch
  */
-gulp.task('watch', function() {
-	gulp.watch('src/scss/*.scss', ['run-css']);
+gulp.task('watch:styles', function() {
+	gulp.watch('src/scss/*.scss', gulp.parallel('run-css'));
 });
 
 
 //default task
-gulp.task('default', ['run-css', 'watch']);
+gulp.task('default', gulp.series('run-css', 'watch:styles'));
