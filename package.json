@@ -11,11 +11,7 @@
   "dependencies": {
     "babel-core": "*",
     "babel-preset-env": "*",
-    "font-awesome": "*",
-    "gulp-babel": "*",
-    "jquery": "*",
-    "normalize.css": "*",
-    "slick-carousel": "*"
+    "gulp-babel": "*"
   },
   "devDependencies": {
     "autoprefixer": "*",
@@ -24,7 +20,6 @@
     "gulp-postcss": "*",
     "gulp-rename": "*",
     "gulp-sass": "*",
-    "gulp-uglify": "*",
-    "run-sequence": "*"
+    "gulp-uglify": "*"
   }
 }
