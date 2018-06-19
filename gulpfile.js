@@ -64,12 +64,28 @@ gulp.task('run-css', gulp.series('sass', 'css'));
 
 
 /*
- * watch task
+ * watch:js task
+ * run: watch
+ */
+gulp.task('watch:js', function() {
+	gulp.watch('src/js/custom.js', gulp.parallel('jsmin'));
+});
+
+
+/*
+ * watch:styles task
  * run: watch
  */
 gulp.task('watch:styles', function() {
 	gulp.watch('src/scss/*.scss', gulp.parallel('run-css'));
 });
+
+
+/*
+ * watch:styles task
+ * run: watch
+ */
+gulp.task('js', gulp.series('jsmin', 'watch:js'));
 
 
 //default task
