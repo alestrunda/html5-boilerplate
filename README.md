@@ -9,4 +9,7 @@ HTML & SASS starting pack for new web sites.
 * ITCSS (BEM)
 
 See dependecies in package.json for basic assets used on web.
-Run "npm update --save" to replace "*" with the latest versions (before "npm install").
+
+Before each projekt dependencies should be updated - I recommend using [npm-check-updates](https://www.npmjs.com/package/npm-check-updates):
+npm-check-updates -u
+npm install
