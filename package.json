@@ -27,6 +27,17 @@
     "stylelint-config-standard": "^18.2.0"
   },
   "stylelint": {
-    "extends": "stylelint-config-standard"
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "declaration-block-no-duplicate-properties": true,
+      "at-rule-empty-line-before": [
+        "never",
+        {
+          "ignoreAtRules": [
+            "import"
+          ]
+        }
+      ]
+    }
   }
 }
