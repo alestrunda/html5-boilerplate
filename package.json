@@ -37,6 +37,22 @@
             "import"
           ]
         }
+      ],
+      "at-rule-no-unknown": [
+        true,
+        {
+          "ignoreAtRules": [
+            "function",
+            "if",
+            "each",
+            "else",
+            "error",
+            "include",
+            "mixin",
+            "return",
+            "warn"
+          ]
+        }
       ]
     }
   }
