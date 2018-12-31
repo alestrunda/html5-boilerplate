@@ -82,8 +82,8 @@ gulp.task('watch:styles', function() {
 
 
 /*
- * watch:styles task
- * run: watch
+ * js task
+ * run: jsmin, watch:js
  */
 gulp.task('js', gulp.series('jsmin', 'watch:js'));
 
