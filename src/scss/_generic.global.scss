@@ -1,8 +1,3 @@
-//remove outline for mouse users (preserve it for keyboard users)
-:focus:not(:focus-visible) {
-  outline: none;
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
