@@ -6,6 +6,7 @@ var autoprefixer = require("autoprefixer");
 var cssnano = require("cssnano");
 var babel = require("gulp-babel");
 var sass = require("gulp-sass");
+var purify = require("gulp-purifycss");
 var rename = require("gulp-rename");
 var uglify = require("gulp-uglify");
 
@@ -54,6 +55,7 @@ gulp.task("css", function() {
   var processors = [autoprefixer(), cssnano()];
   return gulp
     .src("styles/main.min.css")
+    .pipe(purify(["*.html", "src/js/*.js"]))
     .pipe(postcss(processors))
     .pipe(gulp.dest("styles"));
 });
@@ -77,7 +79,7 @@ gulp.task("watch:js", function() {
  * run: watch
  */
 gulp.task("watch:styles", function() {
-  gulp.watch("src/scss/*.scss", gulp.parallel("run-css"));
+  gulp.watch(["*.html", "src/scss/*.scss"], gulp.parallel("run-css"));
 });
 
 /*
