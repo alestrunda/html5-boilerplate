@@ -1,19 +1,17 @@
 "use strict";
 
-var gulp = require("gulp");
-var postcss = require("gulp-postcss");
-var autoprefixer = require("autoprefixer");
-var cssnano = require("cssnano");
-var babel = require("gulp-babel");
-var sass = require("gulp-sass");
-var purify = require("gulp-purifycss");
-var rename = require("gulp-rename");
-var uglify = require("gulp-uglify");
+const gulp = require("gulp"),
+  postcss = require("gulp-postcss"),
+  autoprefixer = require("autoprefixer"),
+  cssnano = require("cssnano"),
+  babel = require("gulp-babel"),
+  sass = require("gulp-sass"),
+  purify = require("gulp-purifycss"),
+  rename = require("gulp-rename"),
+  uglify = require("gulp-uglify"),
+  imagemin = require("gulp-imagemin");
 
-/*
- * sass task
- * run: sass
- */
+// task sass
 gulp.task("sass", function() {
   return gulp
     .src("src/scss/main.scss")
@@ -26,10 +24,7 @@ gulp.task("sass", function() {
     .pipe(gulp.dest("styles"));
 });
 
-/*
- * js min
- * reun uglify
- */
+// task jsmin
 gulp.task("jsmin", function(cb) {
   return gulp
     .src("src/js/custom.js")
@@ -47,10 +42,7 @@ gulp.task("jsmin", function(cb) {
     .pipe(gulp.dest("js"));
 });
 
-/*
- * css task
- * run: autoprefixer, cssnano
- */
+// task css
 gulp.task("css", function() {
   var processors = [autoprefixer(), cssnano()];
   return gulp
@@ -60,33 +52,32 @@ gulp.task("css", function() {
     .pipe(gulp.dest("styles"));
 });
 
-/*
- * run-css task
- * run: sass and css
- */
+//task imagemin
+gulp.task("css", function() {
+  return gulp
+    .src("images/*")
+    .pipe(imagemin())
+    .pipe(gulp.dest("images"));
+});
+
+// task run-css
 gulp.task("run-css", gulp.series("sass", "css"));
 
-/*
- * watch:js task
- * run: watch
- */
+// task watch:js
 gulp.task("watch:js", function() {
   gulp.watch("src/js/custom.js", gulp.parallel("jsmin"));
 });
 
-/*
- * watch:styles task
- * run: watch
- */
+// task watch:styles
 gulp.task("watch:styles", function() {
   gulp.watch(["*.html", "src/scss/*.scss"], gulp.parallel("run-css"));
 });
 
-/*
- * js task
- * run: jsmin, watch:js
- */
+// task js
 gulp.task("js", gulp.series("jsmin", "watch:js"));
+
+// task js
+gulp.task("image", gulp.parallel("imagemin"));
 
 //default task
 gulp.task("default", gulp.series("run-css", "watch:styles"));
