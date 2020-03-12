@@ -53,7 +53,7 @@ gulp.task("css", function() {
 });
 
 //task imagemin
-gulp.task("css", function() {
+gulp.task("imagemin", function() {
   return gulp
     .src("images/*")
     .pipe(imagemin())
