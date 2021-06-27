@@ -2,14 +2,25 @@
 
 HTML & SASS starting pack for new web sites.
 
-## Using:
+## Uses:
 * npm
 * gulp
 * SASS
-* ITCSS (BEM)
+* ITCSS (using BEM)
 
-See dependecies in package.json for basic assets used on web.
+See dependecies in `package.json` to check the assets used.
 
-Before each projekt dependencies should be updated - I recommend using [npm-check-updates](https://www.npmjs.com/package/npm-check-updates):
+## Get started
+
+Before starting a new project consider to update the dependencies - I recommend using [npm-check-updates](https://www.npmjs.com/package/npm-check-updates):
+
+```bash
 npm-check-updates -u
 npm install
+```
+
+### Scripts
+
+`gulp` to run CSS transpiler in watch mode
+
+`gulp js` to run JS transpiler in watch mode
